@@ -85,7 +85,7 @@ function Layout({ children }) {
                                     <li>
                                         <img src={CartIcon} className='w-8 h-8 inline' />
                                         {' '}
-                                        <p className='text-black inline'>{cartsData?.items?.length}</p>
+                                        <div className='rounded-full text-white absolute bg-red-600 pr-1 pl-1 left-5 bottom-4'>{cartsData?.items?.length}</div>
                                     </li>
                                 </Link>
                                 

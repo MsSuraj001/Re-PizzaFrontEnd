@@ -189,14 +189,14 @@ function Home() {
                             item.inStock && (
                                 <div className="p-4 md:w-1/3" key={item._id}>
                                     <Link to={`/product/${item._id}`}>
-                                        <div className="overflow-hidden border rounded-lg border-opacity-60">
+                                        <div className="overflow-hidden border rounded-lg border-opacity-60 shadow-md">
                                             <img 
                                                 src={item.productImage}
                                                 alt="Pizza Image"
                                                 className="object-cover object-center w-full lg:h-48 md:h-36"
                                             />
                                             <div className="p-6 border">
-                                                <h2 className="text-xs font-medium tracking-widest text-gray-400 title-font">
+                                                <h2 className="text-xs font-medium tracking-widest text-green-500 title-font">
                                                     {item.catogory}
                                                 </h2>
                                                 <h1 className="mb-3 text-lg font-medium text-gray-900 title-font">
@@ -205,9 +205,13 @@ function Home() {
                                                 <p className="mb-4 text-base leading-relaxed">
                                                     {item.discriptions}
                                                 </p>
-                                                <p className="text-lg font-medium text-gray-900 title-font">
-                                                    ${item.price}
-                                                </p>
+                                                <div className='flex justify-between'>
+                                                    <p className="text-lg font-medium text-gray-900 title-font">
+                                                        ${item.price}
+                                                    </p>
+
+                                                    <button className='text-green-500 p-2 border-2 border-green-500 rounded'>Add To Cart</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </Link>
