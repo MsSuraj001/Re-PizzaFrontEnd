@@ -6,6 +6,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../Redux/Slices/AuthSlice'
 import { getCartDetails } from '../Redux/Slices/CartSlice'
+import menu from '../assets/Images/menu.png'
 
 function Layout({ children }) {
 
@@ -40,13 +41,17 @@ function Layout({ children }) {
         <>
             <div>
 
-                <nav className="flex items-center justify-around h-16 text-[#6B7280] font-mono border-none shadow-md">
+                <nav className="flex items-center justify-around h-16 text-[#6B7280] font-mono border-none shadow-lg">
 
-                    <div className="flex items-center justify-center cursor-pointer"
+                    <div className="hidden sm:block sm:flex items-center justify-center cursor-pointer"
                     onClick={() => navigate('/')}
                     >
                         <p>Pizza App</p>
                         <img src={Pizzalogo} alt="Pizza logo" />
+                    </div>
+
+                    <div className='sm:hidden w-12 h-10'>
+                            <img src={menu} alt="" />
                     </div>
 
                     <div className='hidden md:block'>
