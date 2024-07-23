@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Pizzalogo from '../assets/Images/pizza1.png'
 import Footer from '../Components/Footer'
 import CartIcon from '../assets/Images/cart.svg'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../Redux/Slices/AuthSlice'
 import { getCartDetails } from '../Redux/Slices/CartSlice'
@@ -41,7 +41,7 @@ function Layout({ children }) {
         <>
             <div>
 
-                <nav className="flex items-center justify-around h-16 text-[#6B7280] font-mono border-none shadow-lg">
+                <nav className="flex items-center sm:justify-around justify-between px-7 h-16 text-[#6B7280] font-mono border-none shadow-lg">
 
                     <div className="hidden sm:block sm:flex items-center justify-center cursor-pointer"
                     onClick={() => navigate('/')}
@@ -51,7 +51,7 @@ function Layout({ children }) {
                     </div>
 
                     <div className='sm:hidden w-12 h-10'>
-                            <img src={menu} alt="" />
+                            <img src={menu} alt="" onClick={()=>{}}/>
                     </div>
 
                     <div className='hidden md:block'>
