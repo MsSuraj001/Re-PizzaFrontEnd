@@ -9,32 +9,32 @@ import { getCartDetails } from '../Redux/Slices/CartSlice'
 
 function Layout({ children }) {
 
-    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-    const { cartsData } = useSelector((state) => state.cart);
+    // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    // const { cartsData } = useSelector((state) => state.cart);
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const dispatch = useDispatch();
+    // const navigate = useNavigate();
 
-    async function handleLogout(e) {
-        e.preventDefault();
-        dispatch(logout());  
-    }
+    // async function handleLogout(e) {
+    //     e.preventDefault();
+    //     dispatch(logout());  
+    // }
 
-    async function fetchCartDetails() {
-        const res = await dispatch(getCartDetails());
-        console.log("cart Details", res); //this is the work
-        if(res?.payload?.isUnauthorized) {
-            console.log("unauthorized");
-            dispatch(logout());
-        }
-    }
+    // async function fetchCartDetails() {
+    //     const res = await dispatch(getCartDetails());
+    //     console.log("cart Details", res); //this is the work
+    //     if(res?.payload?.isUnauthorized) {
+    //         console.log("unauthorized");
+    //         dispatch(logout());
+    //     }
+    // }
 
-    useEffect(() => {
-        console.log(typeof(isLoggedIn))  // boolean
-        if(isLoggedIn) {
-            fetchCartDetails();
-        }
-    }, []);
+    // useEffect(() => {
+    //     console.log(typeof(isLoggedIn))  // boolean
+    //     if(isLoggedIn) {
+    //         fetchCartDetails();
+    //     }
+    // }, []);
 
     return (
         <>
@@ -43,10 +43,10 @@ function Layout({ children }) {
                 <nav className="flex items-center justify-around h-16 text-[#6B7280] font-mono border-none shadow-md">
 
                     <div className="flex items-center justify-center cursor-pointer"
-                    onClick={() => navigate('/')}
+                    // onClick={() => navigate('/')}
                     >
                         <p>Pizza App</p>
-                        <img src={Pizzalogo} alt="Pizza logo" />
+                        <img className='hidden md:block' src={Pizzalogo} alt="Pizza logo" />
                     </div>
 
                     <div className='hidden md:block'>
@@ -72,24 +72,24 @@ function Layout({ children }) {
 
                     <div>
                         <ul className='flex gap-4'>
-                            <li className='hover:text-[#FF9110]'>
+                            {/* <li className='hover:text-[#FF9110]'>
                                 {isLoggedIn ? (
                                     <Link onClick={handleLogout}>Logout</Link>
                                 ) : (
                                     <Link to={'/auth/login'}>Login</Link>
                                 )}
-                            </li>
+                            </li> */}
 
-                            {isLoggedIn && (
+                            {/* {isLoggedIn && (
                                 <Link to={'/cart'}>
-                                    <li>
+                                    <li className='relative'>
                                         <img src={CartIcon} className='w-8 h-8 inline' />
                                         {' '}
-                                        <p className='text-black inline'>{cartsData?.items?.length}</p>
+                                        <div className='rounded-full text-white absolute bg-red-600 pr-1 pl-1 left-5 bottom-4'>{cartsData?.items?.length}</div>
                                     </li>
                                 </Link>
                                 
-                            )}
+                            )} */}
                         </ul>
                     </div>
 

@@ -24,20 +24,20 @@ function App() {
 
     <Routes>
       <Route path='/' element={ < Home/>} />
-      <Route path='/auth/signup' element={ < SingUpPresentations/>} />
-      <Route path='auth/login' element={ <LogInPrenstation/> } />
-      <Route path='/admin/addProduct' element={ <AddProduct /> } />
-      <Route path='/product/:productId' element={<ProductDetails />} />
+      {/* <Route path='/auth/signup' element={ < SingUpPresentations/>} /> */}
+      {/* <Route path='auth/login' element={ <LogInPrenstation/> } /> */}
+      {/* <Route path='/admin/addProduct' element={ <AddProduct /> } />
+      <Route path='/product/:productId' element={<ProductDetails />} /> */}
 
-      <Route element={ <RequireAuth />}>
+      {/* <Route element={ <RequireAuth />}>
         <Route path='/order' element={ <Order/>} />
         <Route path='/order/success' element={ <OrderSuccess/>} />
         <Route path='/cart' element={<CartDetails />} />
-      </Route>
+      </Route> */}
 
 
-      <Route path='/denied' element={ <Denied />} />
-      <Route path='*' element={ <NotFound />} />
+      {/* <Route path='/denied' element={ <Denied />} />
+      <Route path='*' element={ <NotFound />} /> */}
     </Routes>
     </>
   )
