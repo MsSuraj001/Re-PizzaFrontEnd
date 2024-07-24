@@ -182,7 +182,7 @@ function Home() {
 
             </section>
 
-            {/* <div className="mx-auto">
+            <div className="mx-auto">
                 <div className="flex flex-wrap justify-center">
                     {productsData.map((item) => {
                         return (
@@ -220,7 +220,7 @@ function Home() {
                         )
                     })}
                 </div>
-            </div> */}
+            </div>
 
             
 
