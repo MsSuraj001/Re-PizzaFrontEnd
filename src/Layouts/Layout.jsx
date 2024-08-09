@@ -6,35 +6,36 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../Redux/Slices/AuthSlice'
 import { getCartDetails } from '../Redux/Slices/CartSlice'
+// import  Account  from '../assets/Images/account.png'
 
 function Layout({ children }) {
 
-    // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-    // const { cartsData } = useSelector((state) => state.cart);
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    const { cartsData } = useSelector((state) => state.cart);
 
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    // async function handleLogout(e) {
-    //     e.preventDefault();
-    //     dispatch(logout());  
-    // }
+    async function handleLogout(e) {
+        e.preventDefault();
+        dispatch(logout());  
+    }
 
-    // async function fetchCartDetails() {
-    //     const res = await dispatch(getCartDetails());
-    //     console.log("cart Details", res); //this is the work
-    //     if(res?.payload?.isUnauthorized) {
-    //         console.log("unauthorized");
-    //         dispatch(logout());
-    //     }
-    // }
+    async function fetchCartDetails() {
+        const res = await dispatch(getCartDetails());
+        console.log("cart Details", res); //this is the work
+        if(res?.payload?.isUnauthorized) {
+            console.log("unauthorized");
+            dispatch(logout());
+        }
+    }
 
-    // useEffect(() => {
-    //     console.log(typeof(isLoggedIn))  // boolean
-    //     if(isLoggedIn) {
-    //         fetchCartDetails();
-    //     }
-    // }, []);
+    useEffect(() => {
+        console.log(typeof(isLoggedIn))  // boolean
+        if(isLoggedIn) {
+            fetchCartDetails();
+        }
+    }, []);
 
     return (
         <>
@@ -43,7 +44,7 @@ function Layout({ children }) {
                 <nav className="flex items-center justify-around h-16 text-[#6B7280] font-mono border-none shadow-md">
 
                     <div className="flex items-center justify-center cursor-pointer"
-                    // onClick={() => navigate('/')}
+                    onClick={() => navigate('/')}
                     >
                         <p>Pizza App</p>
                         <img className='hidden md:block' src={Pizzalogo} alt="Pizza logo" />
@@ -54,17 +55,17 @@ function Layout({ children }) {
 
                             <li className='hover:text-[#FF9110] cursor-pointer'>
                                 {' '}
-                                <p>Menu {' '}</p>
+                                <Link to={'/menu'}>Menu {' '}</Link>
                             </li>
 
                             <li className='hover:text-[#FF9110] cursor-pointer'>
                                 {' '}
-                                <p>Services {' '}</p>
+                                <Link to='/service'>Services {' '}</Link>
                             </li>
 
                             <li className='hover:text-[#FF9110] cursor-pointer'>
                                 {' '}
-                                <p>About {' '}</p>
+                                <Link to='/about'>About {' '}</Link>
                             </li>
 
                         </ul>
@@ -72,24 +73,26 @@ function Layout({ children }) {
 
                     <div>
                         <ul className='flex gap-4'>
-                            {/* <li className='hover:text-[#FF9110]'>
+                            <li className='hover:text-[#FF9110]'>
                                 {isLoggedIn ? (
                                     <Link onClick={handleLogout}>Logout</Link>
                                 ) : (
                                     <Link to={'/auth/login'}>Login</Link>
                                 )}
-                            </li> */}
+                            </li>
 
-                            {/* {isLoggedIn && (
+                            {isLoggedIn && (
                                 <Link to={'/cart'}>
                                     <li className='relative'>
                                         <img src={CartIcon} className='w-8 h-8 inline' />
                                         {' '}
-                                        <div className='rounded-full text-white absolute bg-red-600 pr-1 pl-1 left-5 bottom-4'>{cartsData?.items?.length}</div>
+                                        <div className='rounded-full text-white flex justify-center items-center absolute bg-red-600 h-5 w-5 left-4 bottom-4'>
+                                            <p className='text-center'>{cartsData?.items?.length}</p>
+                                        </div>
                                     </li>
                                 </Link>
                                 
-                            )} */}
+                            )}
                         </ul>
                     </div>
 
