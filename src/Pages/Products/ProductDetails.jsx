@@ -27,7 +27,7 @@ function ProductDetails() {
     async function handleCart() {
         // Add product to cart
         const response = await dispatch(addProductToCart(productId));
-        if(response?.payload?.data?.success) {
+        if(response?.payload?.data?.success){
             setIsInCart(true);
             dispatch(getCartDetails()); // Fetch cart details and update state
         }
@@ -222,7 +222,7 @@ function ProductDetails() {
               // <h1>Your Card</h1>
               
               
-              <div className="flex-1 max-w-4xl mx-auto mt-6 space-y-6 hidden md:hidden lg:blocknp lg:mt-10 lg:w-full lg:mr-12">
+              <div className="flex-1 max-w-4xl mx-auto mt-6 space-y-6 hidden md:hidden lg:block lg:mt-10 lg:w-full lg:mr-12">
                 <div className="p-4 space-y-4 text-gray-800 border rounded-lg shadow-sm bg-gradient-to-r from-amber-50 to-orange-300 sm:p-6">
                   <p className="text-xl font-semibold text-gray-900 ">
                     Order summary
@@ -295,10 +295,10 @@ function ProductDetails() {
                     </Link>
                   </div>
                 </div>
-                <h1>Cart</h1>
+                {/* <h1>Cart</h1> */}
               </div>
             ) : (
-              <div className="">
+              <div className="hidden md:block">
                 <h1 className="text-center text-red-700 text-xl font-bold my-2">Cart is Empty</h1>
                 <img className="h-64 w-48 my-6" src={emptyCart} alt="" />
               </div>

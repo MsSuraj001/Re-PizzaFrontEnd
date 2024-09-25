@@ -8,6 +8,7 @@ import { logout } from '../Redux/Slices/AuthSlice'
 import { getCartDetails } from '../Redux/Slices/CartSlice'
 // import  Account  from '../assets/Images/account.png'
 
+
 function Layout({ children }) {
 
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -86,7 +87,7 @@ function Layout({ children }) {
                                     <li className='relative'>
                                         <img src={CartIcon} className='w-8 h-8 inline' />
                                         {' '}
-                                        <div className='rounded-full text-white flex justify-center items-center absolute bg-red-600 h-5 w-5 left-4 bottom-4'>
+                                        <div className='rounded-full text-gray-200 flex justify-center items-center absolute bg-red-600 h-5 w-5 left-4 bottom-4'>
                                             <p className='text-center'>{cartsData?.items?.length}</p>
                                         </div>
                                     </li>
@@ -101,7 +102,7 @@ function Layout({ children }) {
                 </nav>
 
                 {children}
-
+            
                 <Footer />
             </div>
         </>
